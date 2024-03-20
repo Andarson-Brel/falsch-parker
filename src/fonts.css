@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "cygre";
+  src: url("../src/fonts/Cygre-Bold.ttf") format("ttf");
+  /* Add additional src URLs for other font file formats if available */
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "cygre";
+  src: url("../src/fonts/Cygre-Medium.ttf") format("ttf");
+  /* Add additional src URLs for other font file formats if available */
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "cygre";
+  src: url("../src/fonts/Cygre-Regular.ttf") format("ttf");
+  /* Add additional src URLs for other font file formats if available */
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "cygre";
+  src: url("../src/fonts/Cygre-Black.ttf") format("ttf");
+  /* Add additional src URLs for other font file formats if available */
+  font-weight: 700;
+  font-style: normal;
+}
