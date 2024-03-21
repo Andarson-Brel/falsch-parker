@@ -1,45 +1,15 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import BtnPrimary from "../button/BtnPrimary";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
-    // <nav className="navBar">
-    //   <img src="./images/logo.webp" alt="logo" />
-    //   <ul className="navbar-links">
-    //     <Link to={"/"}>
-    //       <li>Home</li>
-    //     </Link>
-    //     <li>App</li>
-    //     <Link to={"/parking-ticket"}>
-    //       <li>Parking ticket</li>
-    //     </Link>
-
-    //     <Link to={"/towing"}>
-    //       <li>Towing</li>
-    //     </Link>
-
-    //     <Link to={"/fuel-fraud"}>
-    //       <li>Fuel Fraud</li>
-    //     </Link>
-    //     <Link to={"/contact"}>
-    //       <li>Contact</li>
-    //     </Link>
-    //   </ul>
-    //   <div className="nav-btn-cont">
-    //     <BtnPrimary
-    //       styles={{
-    //         background: "#05D54B",
-    //         color: "#fff",
-    //         border: "none",
-    //         margin: "0",
-    //       }}
-    //     >
-    //       Pay fine
-    //     </BtnPrimary>
-    //   </div>
-    // </nav>
-
-    <nav className="nav bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <nav className="nav bg-white  fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           to="/"
@@ -61,11 +31,11 @@ function Navbar() {
             </BtnPrimary>
           </div>
           <button
-            data-collapse-toggle="navbar-sticky"
+            onClick={toggleMenu}
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-sticky"
-            aria-expanded="false"
+            aria-expanded={isMenuOpen ? "true" : "false"}
           >
             <span className="sr-only">Open main menu</span>
             <svg
@@ -77,33 +47,35 @@ function Navbar() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
           </button>
         </div>
         <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+            isMenuOpen ? "" : "hidden"
+          }`}
           id="navbar-sticky"
         >
           <ul className="navbar-links flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <Link to={"/"}>
+            <Link to="/">
               <li>Home</li>
             </Link>
             <li>App</li>
-            <Link to={"/parking-ticket"}>
+            <Link to="/parking-ticket">
               <li>Parking ticket</li>{" "}
             </Link>
-            <Link to={"/towing"}>
+            <Link to="/towing">
               <li>Towing</li>
             </Link>
-            <Link to={"/fuel-fraud"}>
+            <Link to="/fuel-fraud">
               <li>Fuel Fraud</li>
             </Link>
-            <Link to={"/contact"}>
+            <Link to="/contact">
               <li>Contact</li>
             </Link>
           </ul>
